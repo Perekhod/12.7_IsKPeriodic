@@ -26,16 +26,30 @@ int main()
     std::string baseString;
     std::cin >> baseString;
 
-    std::cout << "Enter the multiplicity value, please:";
+    std::cout << "Enter the multiplicity value 'K', please:";
     int K = 0;
     std::cin >> K;
 
     while(true)
     {
+        doubleZero:
         if (K <= 0)
         {
-            std::cout << "Attention! K should be > 0\n";
-            std::cout << "Enter the multiplicity value, please:";
+            std::cout << "Attention! 'K' should be > 0\n";
+            std::cout << "Enter the multiplicity value 'K', please:";
+            std::cin >> K;
+
+            if (K == 0)
+            { 
+                goto doubleZero;
+            }
+           
+        }
+        if (K > size(baseString))
+        {
+            std::cout << "'K' cannot be > size base string\n";
+            std::cout << "Size base string = " << size(baseString) << '\n';
+            std::cout << "Enter the correct multiplicity value 'K', please:";
             std::cin >> K;
         }
         else
@@ -46,10 +60,10 @@ int main()
 
     for (auto& token : tokens) 
     {
-        std::cout << token << std::endl;
+        std::cout << token << '\n';
     }
 
-    std::cout << std::boolalpha << IsKPeriodic(tokens) << std::endl;
+    std::cout << std::boolalpha << IsKPeriodic(tokens) << '\n';
 
     return 0;
 }
