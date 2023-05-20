@@ -1,2 +1,4 @@
 # Homework 12.7. by Perekhod
-# Realizzle through the lines
+The program checks if the string is a multiple of K
+
+K must be > 0
